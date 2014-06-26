@@ -1,0 +1,3 @@
+In application\config\Config.php set the root path
+eg. $this->basepath = "http://localhost/PHPNanoProject"
+    $this->basepath = "http://www.yoursite.com"

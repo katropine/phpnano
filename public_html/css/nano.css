@@ -1,0 +1,30 @@
+/* 
+    Document   : nano
+    Created on : Nov 25, 2010, 1:09:57 AM
+    Author     : Kriss
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    background-color: #000000;
+    color: lawngreen;
+    font-family: "Courier New", "sans-serif", "Sens";
+    font-size: 13px;
+}
+a{
+    color: lawngreen;
+}
+#wrapper{
+    margin: 0 auto;
+    width:800px;
+}
+a{
+    color:dodgerblue;
+    text-decoration: underline;
+}
+a:hover{
+    color:aquamarine;
+    text-decoration: underline;
+}
+

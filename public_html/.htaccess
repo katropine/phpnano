@@ -1,0 +1,18 @@
+php_flag display_errors on
+php_value error_reporting 30711
+
+Options None
+Options +FollowSymLinks
+DirectoryIndex index.php
+
+RewriteEngine on
+
+# Only remove trailing slashes from non-directory requests.
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]
