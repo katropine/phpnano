@@ -33,6 +33,19 @@ class IndexController extends AbstractController{
         **********************************************************/
         $this->Layout->load($this->View);
     }
-    
+    public function twigsampleAction(){
+
+        $this->View->name = 'Twog template';
+
+        $user1 = new \stdClass();
+        $user1->name = "Twig user 1";
+
+        $user2 = new \stdClass();
+        $user2->name = "Twig user 2";
+        
+
+        $this->View->users = [$user1, $user2];
+        $this->Layout->load($this->View);
+    } 
     
 }

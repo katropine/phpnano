@@ -24,7 +24,10 @@
     GET: [$this->_request->get->varname]<br>
     POST: [$this->_request->post->varname]<br>
     --> in View file just call <br>
-    echo $id;
+    echo $id;<br><br>
+
+    Twig supported: <br>
+    create a file in views/__cntName__/__actionName__.twig.php
 </div>
 </body>
 </html>

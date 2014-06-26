@@ -29,13 +29,15 @@ class Url {
     }
     
     public function get($array){
-        $url = $array['controller']."/".$array['action'];
-        foreach ($array as $key => $value) {
-            if($key != 'controller' && $key != 'action'){
-               $url .= "/".$key."/".$value;
-            }
-        }
-        return $url;
+
+        return $this->getAbsolute($array);
+        // $url = $array['controller']."/".$array['action'];
+        // foreach ($array as $key => $value) {
+        //     if($key != 'controller' && $key != 'action'){
+        //        $url .= "/".$key."/".$value;
+        //     }
+        // }
+        // return $url;
     }
     
     public function getAbsolute($array){

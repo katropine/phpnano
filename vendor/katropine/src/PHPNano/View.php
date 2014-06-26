@@ -23,18 +23,33 @@ class View{
     }
     
     public function  __construct($controller, $action){
-        $this->file = ROOTPATH."/../application/views/".$controller."/".$action.".php";
+    	$this->file = ROOTPATH."/../application/views/".$controller."/".$action.".php";
+    	if(!file_exists($this->file)){
+    		$this->file = ROOTPATH."/../application/views/".$controller."/".$action.".twig.php";
+    	}
         $this->Registry = new Registry();
     }
     public function render(){
        
 		if(file_exists($this->file)){
+			if(self::isTwig($this->file)){
+				
+				$twig = new \Twig_Environment(new \Twig_Loader_String(), array(
+			        'autoescape' => false,
+			    ));
+			    
+			    $templateOutput = file_get_contents($this->file);
+				
+				$this->vars['Url'] = $this->_Url;
+			    echo $twig->render($templateOutput, $this->vars);
 
-			foreach ($this->vars as $key => $value){
-				$$key = $value;
-			}
+			}else{
+				foreach ($this->vars as $key => $value){
+					$$key = $value;
+				}
 				${'Url'} = $this->_Url;
-			include $this->file;
+				include $this->file;
+			}
 		}else{
 			throw new \Exception("No such View file as ".$this->file." (class: View; method: render())");
 		}
@@ -58,5 +73,12 @@ class View{
     }
     public function setUrl(Url $Url){
         $this->_Url = $Url;
+    }
+    protected static function isTwig($file){
+    	$parts = explode('.', $file);
+    	if('twig' === $parts[3]){
+    		return true;
+    	}
+    	return false;
     }
 }
