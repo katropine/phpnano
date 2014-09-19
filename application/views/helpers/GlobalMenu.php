@@ -5,7 +5,7 @@
  * @author Kriss
  * @since Dec 12, 2010
  */
-namespace Application/View/Helper; 
+namespace Application\View\Helper; 
  
 class GlobalMenu {
 
